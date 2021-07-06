@@ -27,7 +27,6 @@ void	stock_args(t_data *data, char **av)
 	int nbr;
 
 	i = 1;
-	// data->a = NULL;
 	while (av[i])
 	{
 		j = 0;
@@ -116,8 +115,6 @@ void	caller(t_data *data)
 	data->index_hundred = 0;
 	// data->index_len = data->count_table / 5;
 	// system("clear");
-	// display(data);
-	// printf("|%d|\n", data->count_table);
 	if (data->count_table + 1== 3)
 		tree_nembre(data, data->tab_a[0], data->tab_a[1], data->tab_a[2]);
 	else if (data->count_table + 1 == 2)
@@ -126,13 +123,11 @@ void	caller(t_data *data)
 		sort_five(data);
 	else if (data->count_table + 1 >= 6)
 		sort_over_hundred(data, 5);
-	// display(data);
 }
 
 void	init(t_data *data)
 {
 	data->a = NULL;
-	// data->b = NULL;
 	data->index_a = 0;
 	data->index_b = 0;
 }

@@ -27,7 +27,6 @@ typedef	struct s_stack
 typedef struct s_data
 {
 	t_stack		*a;
-	// t_stack		*b;
 	int			*tab_sorted;
 	int			*tab;
 	int			*tab_a;
