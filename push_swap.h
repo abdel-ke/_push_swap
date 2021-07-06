@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:03:21 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/06 18:45:05 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/06 20:08:41 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,14 @@ void	ra(t_data *data);
 void	rb(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
+
+/* sort */
+/* 2 */
+void	sort_two(t_data *data);
+void	reverse_two(t_data *data);
+/* 3 */ 
+void	tree_nembre(t_data *data, int f_value, int s_value, int l_value);
+void	reverse_tree_nbr(t_data *data, int f_value, int s_value, int l_value);
+
+
 #endif

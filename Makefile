@@ -6,7 +6,7 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/06 18:46:37 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/06 20:09:13 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,8 @@ SRCS =	libft/ft_putchar.c			\
 		operations/push.c			\
 		operations/rotate.c			\
 		operations/reverse_rotate.c	\
-		# sort/sort_two.c				\
-		# sort/sort_tree.c			\
+		sort/sort_tree.c			\
+		sort/sort_two.c				\
 		# sort/sort_five.c			\
 		# sort/checker.c				\
 		# sort/sort_over_hundred.c	\
