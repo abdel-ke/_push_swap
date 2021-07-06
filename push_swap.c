@@ -24,11 +24,10 @@ void	stock_args(t_data *data, char **av)
 	int i;
 	int j;
 	int start;
-	char *nbr;
+	int nbr;
 
 	i = 1;
-	data->a = NULL;
-	data->b = NULL;
+	// data->a = NULL;
 	while (av[i])
 	{
 		j = 0;
@@ -36,19 +35,30 @@ void	stock_args(t_data *data, char **av)
 		{
 			while (av[i][j] && (av[i][j] == ' ' || av[i][j] == '\t'))
 				j++;
-			if (av[i][j])
-			{
-				start = j;
-				while (av[i][j] >= '0' && av[i][j] <= '9')
-					j++;
-				nbr = ft_substr(av[i], start, j - start);
-				lstadd_back(&data->a, lst_new(nbr));
-				if (nbr)
-					free(nbr);
-			}
+			nbr = ft_atoi(av[i] + j);
+			if (av[i][j] == '-')
+				j++;
+			while (av[i][j] >= '0' && av[i][j] <= '9')
+				j++;
+			lstadd_back(&data->a, lst_new2(nbr));
 		}
 		i++;
 	}
+}
+
+int		what(char *str, int pos)
+{
+	if (str[pos] == ' ')
+		;
+	else if (str[pos] >= '0' && str[pos] <= '9')
+		;
+	else if (str[pos] == '-' && str[pos - 1] >= '0' && str[pos - 1] <= '9')
+		return (0);
+	else if (str[pos] == '-' && str[pos + 1] >= '0' && str[pos + 1] <= '9')
+		;
+	else
+		return (0);
+	return (1);
 }
 
 int		check_arg(char **av, t_data *data)
@@ -59,16 +69,10 @@ int		check_arg(char **av, t_data *data)
 	i = 1;
 	while (av[i])
 	{
-		j = 0;
-		while (av[i][j])
-		{
-			// if (av[i][j] == '-' && (av[i][j + 1] < '0' || av[i][j + 1] > '9'))
-			// 	return (0);
-			// if (av[i][j] != ' ' && av[i][j] != '-' && (av[i][j] < '0' || av[i][j] > '9'))
-			if (av[i][j] != ' ' && (av[i][j] < '0' || av[i][j] > '9'))
+		j = -1;
+		while (av[i][++j])
+			if (!what(av[i], j))
 				return (0);
-			j++;
-		}
 		i++;
 	}
 	stock_args(data, av);
@@ -81,12 +85,11 @@ void	ft_free(t_data *data)
 {
 	if (data->a)
 		lstclear(&data->a, free);
-	if (data->b)
-		lstclear(&data->b, free);
-	if (data->tab)
-		free(data->tab);
 	if (data->tab_a)
 		free(data->tab_a);
+	puts("hello");
+	if (data->tab)
+		free(data->tab);
 	if (data->tab_b)
 		free(data->tab_b);
 	if (data)
@@ -119,20 +122,17 @@ void	caller(t_data *data)
 		tree_nembre(data, data->tab_a[0], data->tab_a[1], data->tab_a[2]);
 	else if (data->count_table + 1 == 2)
 		sort_two(data);
-	// else if (data->count_table + 1 >= 4 && data->count_table + 1 <= 5)
-	// 	sort_five(data);
-	// else if (data->count_table + 1 >= 6)
-	// 	sort_over_hundred(data, 5);
+	else if (data->count_table + 1 >= 4 && data->count_table + 1 <= 5)
+		sort_five(data);
+	else if (data->count_table + 1 >= 6)
+		sort_over_hundred(data, 5);
 	// display(data);
 }
 
 void	init(t_data *data)
 {
-	data->tab = NULL;
-	data->tab_a = NULL;
-	data->tab_b = NULL;
 	data->a = NULL;
-	data->b = NULL;
+	// data->b = NULL;
 	data->index_a = 0;
 	data->index_b = 0;
 }
@@ -149,5 +149,5 @@ int main(int ac, char **av)
 	else
 		caller(data);
 	// display2(data);
-	ft_free(data);
+	// ft_free(data);
 }

@@ -27,7 +27,6 @@ t_stack		*lst_new2(int nbr)
 t_stack		*lst_new(char *str)
 {
 	t_stack	*head;
-	t_stack	*prv;
 
 	head = (t_stack *)malloc(sizeof(t_stack));
 	if (!head)

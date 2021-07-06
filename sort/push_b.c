@@ -2,23 +2,17 @@
 
 int		check_first_b(t_data *data, int index)
 {
-	t_stack	*stack;
 	int		pos;
+	int		i;
 
-	stack = data->b;
 	pos = 0;
-	// display(data);
-	while (stack)
+	i = 0;
+	while (i < data->index_b)
 	{
-		// printf("NBR|%d|\n", stack->nbr);
-		if (stack->nbr == data->tab[index])
-		{
-			// printf("\nN|%d|\tF|%d|\tL|%d|\n\n", stack->nbr, pos,
-			// count_stack(data->b) - pos);
+		if (data->tab_b[i] == data->tab[index])
 			return (pos);
-		}
 		pos++;
-		stack = stack->next;
+		i++;
 	}
 	return (-1);
 }
@@ -29,21 +23,19 @@ void	do_it_b(t_data *data, int index)
 	int last_pos;
 
 	first_pos = check_first_b(data, index);
-	last_pos = count_stack(data->b) - first_pos;
+	last_pos = data->index_b - first_pos;
 	if (first_pos != -1)// && last_pos != -1)
 	{
 		if (first_pos <= last_pos)
 		{
 			while (first_pos--)
-				rotate(&data->b, 'b');
-			// push_stack(&data->a, &data->b, 'a');
+				rb(data);
 			pa(data);
 		}
 		else
 		{
 			while (last_pos--)
-				reverse_rotate(&data->b, 'b');
-			// push_stack(&data->a, &data->b, 'a');
+				rrb(data);
 			pa(data);
 		}
 	}
@@ -53,7 +45,7 @@ void	check_b(t_data *data)
 {
 	int i;
 
-	i = count_stack(data->b) - 1;
+	i = data->index_b - 1;
 	// i = data->count_table - 1;
 	while (i != -1)
 		// printf("|%d|\n", data->tab[i--]);

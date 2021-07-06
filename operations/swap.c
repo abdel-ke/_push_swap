@@ -59,8 +59,8 @@ void	swap_stack(t_stack *stack, char c)
 	}
 }
 
-void	swap_a_b(t_data *data)
-{
-	swap_stack(data->a, 'a');
-	swap_stack(data->b, 'b');
-}
+// void	swap_a_b(t_data *data)
+// {
+// 	swap_stack(data->a, 'a');
+// 	swap_stack(data->b, 'b');
+// }

@@ -71,10 +71,10 @@ void	reverse_rotate(t_stack **stack, char c)
 	}	
 }
 
-void	reverse_rotate_a_b(t_data *data)
-{
-	reverse_rotate(&data->a, 'a');
-	reverse_rotate(&data->b, 'b');
-	// reverse_rotate_a(data);
-	// reverse_rotate_b(data);
-}
+// void	reverse_rotate_a_b(t_data *data)
+// {
+// 	reverse_rotate(&data->a, 'a');
+// 	reverse_rotate(&data->b, 'b');
+// 	// reverse_rotate_a(data);
+// 	// reverse_rotate_b(data);
+// }

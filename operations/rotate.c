@@ -20,14 +20,13 @@ void	ra(t_data *data)
 	if (data->index_a > 1)
 	{
 		temp = data->tab_a[0];
-		i = 0;//data->index_a;
+		i = 0;
 		while (i < data->index_a - 1)
 		{
 			data->tab_a[i] = data->tab_a[i + 1];
 			i++;
 		}
 		data->tab_a[i] = temp;
-		printf("%d\tl%dl\n", i, data->tab_a[i]);
 		ft_putendl("ra");
 	}
 }
@@ -51,22 +50,22 @@ void	rb(t_data *data)
 	}
 }
 
-void	rotate(t_stack **stack, char c)
-{
-	int		value;
-	t_stack *del;
+// void	rotate(t_stack **stack, char c)
+// {
+// 	int		value;
+// 	t_stack *del;
 
-	value = (*stack)->nbr;
-	del = *stack;
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	free(del);
-	lstadd_back(stack, lst_new2(value));
-	if (c == 'a')
-		ft_putendl("ra");
-	else
-		ft_putendl("rb");
-}
+// 	value = (*stack)->nbr;
+// 	del = *stack;
+// 	*stack = (*stack)->next;
+// 	(*stack)->prev = NULL;
+// 	free(del);
+// 	lstadd_back(stack, lst_new2(value));
+// 	if (c == 'a')
+// 		ft_putendl("ra");
+// 	else
+// 		ft_putendl("rb");
+// }
 
 // void	rotate(t_stack **stack, char c)
 // {
@@ -103,10 +102,10 @@ void	rotate(t_stack **stack, char c)
 // 	}
 // }
 
-void	rotate_a_b(t_data *data)
-{
-	rotate(&data->a, 'a');
-	rotate(&data->b, 'b');
-	// rotate_a(data);
-	// rotate_b(data);
-}
+// void	rotate_a_b(t_data *data)
+// {
+// 	rotate(&data->a, 'a');
+// 	rotate(&data->b, 'b');
+// 	// rotate_a(data);
+// 	// rotate_b(data);
+// }

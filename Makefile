@@ -33,10 +33,10 @@ SRCS =	libft/ft_putchar.c			\
 		operations/reverse_rotate.c	\
 		sort/sort_tree.c			\
 		sort/sort_two.c				\
-		# sort/sort_five.c			\
+		sort/sort_five.c			\
+		sort/sort_over_hundred.c	\
+		sort/push_b.c				\
 		# sort/checker.c				\
-		# sort/sort_over_hundred.c	\
-		# sort/push_b.c				\
 
 OBJ_DIR		=	./objs
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))

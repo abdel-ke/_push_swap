@@ -14,50 +14,48 @@
 
 int		check_is_in(t_data *data, int start, int end)
 {
-	t_stack	*stack;
+	int i;
 
-	stack = data->a;
-	while (stack)
+	i = 0;
+	while (i < data->index_a)
 	{
-		if (stack->nbr >= data->tab[start] && stack->nbr <= data->tab[end])
+		if (data->tab_a[i] >= data->tab[start] && data->tab_a[i] <= data->tab[end])
 			return (1);
-		stack = stack->next;
+		i++;
 	}
 	return (0);
 }
 
 int		check_beggin_stack(t_data *data, int start, int end)
 {
-	t_stack *stack;
 	int	count;
+	int	i;
 
-	stack = data->a;
 	count = 0;
-	while (stack)
+	i = 0;
+	while (i < data->index_a)
 	{
-		if (stack->nbr >= data->tab[start] && stack->nbr <= data->tab[end])
+		if (data->tab_a[i] >= data->tab[start] && data->tab_a[i] <= data->tab[end])
 			return (count);
 		count++;
-		stack = stack->next;
+		i++;
 	}
 	return (1337);
 }
 
 int		check_last_stack(t_data *data, int start, int end)
 {
-	t_stack	*stack;
 	int		count;
+	int		i;
 
-	stack  = data->a;
-	while (stack->next)
-		stack = stack->next;
 	count = 1;
-	while (stack)
+	i = data->index_a - 1;
+	while (i)
 	{
-		if (stack->nbr >= data->tab[start] && stack->nbr <= data->tab[end])
+		if (data->tab_a[i] >= data->tab[start] && data->tab_a[i] <= data->tab[end])
 			return (count);
 		count++;
-		stack = stack->prev;
+		i--;
 	}
 	return (1337);
 }
@@ -73,29 +71,26 @@ void	do_it(t_data *data, int start, int end)
 	if (first_pos <= last_pos)
 	{
 		while (first_pos--)
-			rotate(&data->a, 'a');
+			ra(data);
 		pb(data);
-		// push_stack(&data->b, &data->a, 'b');
 	}
 	else
 	{
 		while (last_pos--)
-			reverse_rotate(&data->a, 'a');
+			rra(data);
 		pb(data);
-		// push_stack(&data->b, &data->a, 'b');
 	}
 }
 
 void	push_b(t_data *data)
 {
-	t_stack *stack;
+	int i;
 
-	stack = data->a;
-	while (stack)
+	i = 0;
+	while (i < data->index_a)
 	{
 		pb(data);
-		// push_stack(&data->b, &data->a, 'b');
-		stack = stack->next;
+		i++;
 	}
 }
 
@@ -107,28 +102,22 @@ void	sort_over_hundred(t_data *data, int divid)
 
 	i = 1;
 	start = 0;
-	while (i <= 5)
+	while (i < 5)
 	{
 		end = (data->count_table / divid) * i;
 		while (check_is_in(data, start, end) == 1)
 			do_it(data, start, end);
 		start = end;
-	// exit(1);
 		i++;
 	}
-	// i = count_stack(data->a) - 1;
-	// while (i != -1)
-	// {
-	// 	push_stack(&data->b, &data->a, 'b');
-	// 	i--;
-	// }
-	if (count_stack(data->a) == 2)
-		sort_two(data->a);
-	else if (count_stack(data->a) == 3)
-		tree_nembre(&data->a);
-	else if (count_stack(data->a) >= 4)
-		// push_b(data);
+	// puts("hello");
+	if (data->index_a == 2)
+		sort_two(data);
+	else if (data->index_a == 3)
+		tree_nembre(data, data->tab_a[0], data->tab_a[1], data->tab_a[2]);
+	else if (data->index_a >= 4)
 		sort_five(data);
+		// push_b(data);
 	// display(data);
 	check_b(data);
 }

@@ -12,67 +12,19 @@
 
 #include "../push_swap.h"
 
-int		get_last(t_stack *stack)
-{
-	t_stack *curr;
-
-	curr = stack;
-	while (curr->next)
-		curr = curr->next;
-	return (curr->nbr);
-}
-
-
-// void	utils_five(t_data *data)
-// {
-// 		tree_nembre(&data->a);
-// 		if (ft_checker(data->b))
-// 		    reverse_two(data->b);
-// 		push_stack(&data->a, &data->b, 'a');
-// 		push_stack(&data->a, &data->b, 'a');
-// }
-
-// void	sort_five(t_data *data)
-// {
-// 	t_stack	*curr;
-// 	int		pos;
-
-// 	if (count_stack(data->a) == 3)
-// 		utils_five(data);
-// 	else
-// 	{
-// 		curr = data->a;
-// 		pos = 0;
-// 		while (curr)
-// 		{
-// 			if (curr->nbr < data->tab[data->count_table / 2])
-// 			{
-// 				while (pos--)
-// 					rotate(&data->a, 'a');
-// 				push_stack(&data->b, &data->a, 'b');
-// 				sort_five(data);
-// 				break ;
-// 			}
-// 			pos++;
-// 			curr = curr->next;
-// 		}
-// 	}
-// }
-
-
 int		get_pos(t_data *data, int index)
 {
-	t_stack	*stack;
+	int		i;
 	int		pos;
 
-	stack = get_head(data->a);
 	pos = 0;
-	while (stack)
+	i = 0;
+	while (i < data->index_a)
 	{
-		if (stack->nbr == data->tab[index])
+		if (data->tab_a[i] == data->tab[index])
 			return (pos);
 		pos++;
-		stack = stack->next;
+		i++;
 	}
 	return (-1);
 }
@@ -86,34 +38,34 @@ void	sort_five(t_data *data)
 	i = 0;
 	while (i < 2)
 	{
-		display(data);
+		// display(data);
 		first_pos = get_pos(data, i);
 		if (first_pos == -1)
 			last_pos = -1;
 		else
-			last_pos = count_stack(get_head(data->a)) - first_pos;
+			// last_pos = count_stack(get_head(data->a)) - first_pos;
+			last_pos = data->index_a - first_pos;
 		if (first_pos != -1 && last_pos != -1)
 		{
 			if (first_pos <= last_pos)
 			{
 				while (first_pos--)
-					rotate(&data->a, 'a');
+					ra(data);
 				pb(data);
-				// push_stack(&data->b, &data->a, 'b');
 			}
 			else
 			{
 				while (last_pos--)
-					reverse_rotate(&data->a, 'a');
+					rra(data);					
 				pb(data);
-				// push_stack(&data->b, &data->a, 'b');
 			}
 		}
 		i++;
 	}
-	tree_nembre(&data->a);
-	// pa(data);
-	// pa(data);
-	push_stack(&data->a, &data->b, 'a');
-	push_stack(&data->a, &data->b, 'a');
+	tree_nembre(data, data->tab_a[0], data->tab_a[1], data->tab_a[2]);
+	sort_two(data);
+	pa(data);
+	pa(data);
+	// push_stack(&data->a, &data->b, 'a');
+	// push_stack(&data->a, &data->b, 'a');
 }

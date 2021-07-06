@@ -69,76 +69,76 @@ void	pb(t_data *data)
 
 
 
-t_stack	*pa_util(t_data *data, t_stack *node)
-{
-	node = NULL;
-	if (data->b)
-	{
-		data->b = get_head(data->b);
-		node = data->b;
-		data->b = data->b->next;
-		data->b->prev = NULL;
-		node->next = NULL;
-		data->a = node;
-	}
-	return (node);
-}
+// t_stack	*pa_util(t_data *data, t_stack *node)
+// {
+// 	node = NULL;
+// 	if (data->b)
+// 	{
+// 		data->b = get_head(data->b);
+// 		node = data->b;
+// 		data->b = data->b->next;
+// 		data->b->prev = NULL;
+// 		node->next = NULL;
+// 		data->a = node;
+// 	}
+// 	return (node);
+// }
 
-t_stack	*pb_util(t_data *data, t_stack *node)
-{
-	data->a = get_head(data->a);
-	node = data->a;
-	data->a = (data->a)->next;
-	(data->a)->prev = NULL;
-	node->next = NULL;
-	data->b = node;
-	return (node);
-}
+// t_stack	*pb_util(t_data *data, t_stack *node)
+// {
+// 	data->a = get_head(data->a);
+// 	node = data->a;
+// 	data->a = (data->a)->next;
+// 	(data->a)->prev = NULL;
+// 	node->next = NULL;
+// 	data->b = node;
+// 	return (node);
+// }
 
-void	ft_pb(t_data *data)
-{
-	t_stack	*node;
+// void	ft_pb(t_data *data)
+// {
+// 	t_stack	*node;
 
-	node = NULL;
-	if (data->b != NULL)
-	{
-		(data->b) = get_head(data->b);
-		if (data->a)
-		{
-			(data->a) = get_head(data->a);
-			node = data->a;
-			data->a = (data->a)->next;
-			if (data->a)
-				(data->a)->prev = NULL;
-			(data->b)->prev = node;
-			node->next = (data->b);
-		}
-	}
-	else
-		node = pb_util(data, node);
-	ft_putendl("pb");
-}
+// 	node = NULL;
+// 	if (data->b != NULL)
+// 	{
+// 		(data->b) = get_head(data->b);
+// 		if (data->a)
+// 		{
+// 			(data->a) = get_head(data->a);
+// 			node = data->a;
+// 			data->a = (data->a)->next;
+// 			if (data->a)
+// 				(data->a)->prev = NULL;
+// 			(data->b)->prev = node;
+// 			node->next = (data->b);
+// 		}
+// 	}
+// 	else
+// 		node = pb_util(data, node);
+// 	ft_putendl("pb");
+// }
 
-void	ft_pa(t_data *data)
-{
-	t_stack	*node;
+// void	ft_pa(t_data *data)
+// {
+// 	t_stack	*node;
 
-	node = NULL;
-	if (data->a != NULL)
-	{
-		data->a = get_head(data->a);
-		if (data->b)
-		{
-			data->b = get_head(data->b);
-			node = data->b;
-			data->b = data->b->next;
-			if (data->b)
-				data->b->prev = NULL;
-			data->a->prev = node;
-			node->next = data->a;
-		}
-	}
-	else
-		node = pa_util(data, node);
-	ft_putendl("pa");
-}
+// 	node = NULL;
+// 	if (data->a != NULL)
+// 	{
+// 		data->a = get_head(data->a);
+// 		if (data->b)
+// 		{
+// 			data->b = get_head(data->b);
+// 			node = data->b;
+// 			data->b = data->b->next;
+// 			if (data->b)
+// 				data->b->prev = NULL;
+// 			data->a->prev = node;
+// 			node->next = data->a;
+// 		}
+// 	}
+// 	else
+// 		node = pa_util(data, node);
+// 	ft_putendl("pa");
+// }

@@ -27,7 +27,7 @@ typedef	struct s_stack
 typedef struct s_data
 {
 	t_stack		*a;
-	t_stack		*b;
+	// t_stack		*b;
 	int			*tab_sorted;
 	int			*tab;
 	int			*tab_a;
@@ -85,6 +85,9 @@ void	reverse_two(t_data *data);
 /* 3 */ 
 void	tree_nembre(t_data *data, int f_value, int s_value, int l_value);
 void	reverse_tree_nbr(t_data *data, int f_value, int s_value, int l_value);
-
-
+/* 5 */
+void	sort_five(t_data *data);
+/* 100 */
+void	sort_over_hundred(t_data *data, int divid);
+void	check_b(t_data *data);
 #endif
