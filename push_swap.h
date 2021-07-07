@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:03:21 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/06 20:08:41 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:42:44 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_data
 	int			index_a;
 	int			*tab_b;
 	int			index_b;
-	int			index_hundred;
 	int			count_table;
 }				t_data;
 

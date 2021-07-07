@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:56:37 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 11:05:10 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:59:04 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	ft_free(t_data *data)
 		lstclear(&data->a, free);
 	if (data->tab_a)
 		free(data->tab_a);
-	puts("hello");
 	if (data->tab)
 		free(data->tab);
 	if (data->tab_b)
@@ -95,39 +94,18 @@ void	ft_free(t_data *data)
 		free(data);
 }
 
-void	display2(t_data *data)
-{
-		int i = 0;
-		printf("T\t");
-		while (i <= data->count_table)
-			printf("[%d]\t", data->tab[i++]);
-		puts("");
-		i = 0;
-		printf("A\t");
-		while (i < data->index_a)
-			printf("[%d]\t", data->tab_a[i++]);
-		puts("");
-		i = 0;
-		printf("B\t");
-		while (i < data->index_b)
-			printf("|%d|\t", data->tab_b[i++]);
-		puts("");
-}
-
 void	caller(t_data *data)
 {
-
-	data->index_hundred = 0;
-	// data->index_len = data->count_table / 5;
-	// system("clear");
-	if (data->count_table + 1== 3)
+	if (data->count_table == 3)
 		tree_nembre(data, data->tab_a[0], data->tab_a[1], data->tab_a[2]);
-	else if (data->count_table + 1 == 2)
+	else if (data->count_table == 2)
 		sort_two(data);
-	else if (data->count_table + 1 >= 4 && data->count_table + 1 <= 5)
+	else if (data->count_table >= 4 && data->count_table <= 5)
 		sort_five(data);
-	else if (data->count_table + 1 >= 6)
+	else if (data->count_table >= 6 && data->count_table <= 99)
 		sort_over_hundred(data, 5);
+	else if (data->count_table >= 100 && data->count_table <= 500)
+		sort_over_hundred(data, 13);
 }
 
 void	init(t_data *data)
@@ -148,6 +126,6 @@ int main(int ac, char **av)
 		ft_putstr("Error\n");
 	else
 		caller(data);
-	display2(data);
-	// ft_free(data);
+	display(data);
+	ft_free(data);
 }

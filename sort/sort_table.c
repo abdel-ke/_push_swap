@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:14:49 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/06 19:50:22 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:46:50 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		count_stack(t_stack *stack)
 {
-	int i = 0;	
+	int i = 0;
+	while (stack->prev)
+		stack = stack->prev;
 	while (stack)
 	{
 		i++;
@@ -28,11 +30,11 @@ void	fill_table(t_data *data)
 	t_stack	*stack;
 	int i;
 
-	data->count_table = count_stack(data->a) - 1;
+	data->count_table = count_stack(data->a);
 	data->tab = malloc(sizeof(int) * data->count_table);
 	data->tab_a = malloc(sizeof(int) * data->count_table);
 	data->tab_b = malloc(sizeof(int) * data->count_table);
-	stack = data->a;
+	stack = get_head(data->a);
 	i = 0;
 	while (stack)
 	{
@@ -40,7 +42,7 @@ void	fill_table(t_data *data)
 		data->tab[i++] = stack->nbr;
 		data->index_a++;
 		stack = stack->next;
-	}	
+	}
 }
 
 int		sort_table(t_data *data)
@@ -51,10 +53,10 @@ int		sort_table(t_data *data)
 
 	fill_table(data);
 	i = 0;
-	while (i <= data->count_table)
+	while (i < data->count_table)
 	{
 		j = 0;
-		while (j <= data->count_table)
+		while (j < data->count_table)
 		{
 			if (data->tab[i] == data->tab[j] && i != j)
 				return (0);
@@ -63,7 +65,7 @@ int		sort_table(t_data *data)
 		i++;
 	}
 	i = 0;
-	while (i < data->count_table)
+	while (i < data->count_table - 1)
 	{
 		if (data->tab[i] > data->tab[i + 1])
 		{

@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 21:20:17 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/06 19:41:09 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:40:07 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	rra(t_data *data)
 	if (data->index_a > 1)
 	{
 		temp = data->tab_a[data->index_a - 1];
-		i = data->index_a;
+		i = data->index_a - 1;
 		while (i)
 		{
 			data->tab_a[i] = data->tab_a[i - 1];
@@ -38,8 +38,8 @@ void	rrb(t_data *data)
 
 	if (data->index_b > 1)
 	{
-		temp = data->tab_b[data->index_b];
-		i = data->index_b;
+		temp = data->tab_b[data->index_b - 1];
+		i = data->index_b - 1;
 		while (i)
 		{
 			data->tab_b[i] = data->tab_b[i - 1];
@@ -70,11 +70,3 @@ void	reverse_rotate(t_stack **stack, char c)
 			ft_putendl("rrb");
 	}	
 }
-
-// void	reverse_rotate_a_b(t_data *data)
-// {
-// 	reverse_rotate(&data->a, 'a');
-// 	reverse_rotate(&data->b, 'b');
-// 	// reverse_rotate_a(data);
-// 	// reverse_rotate_b(data);
-// }

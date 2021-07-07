@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:02:53 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/06 18:47:09 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:40:18 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,3 @@ void	swap_stack(t_stack *stack, char c)
 			ft_putendl("sb");
 	}
 }
-
-// void	swap_a_b(t_data *data)
-// {
-// 	swap_stack(data->a, 'a');
-// 	swap_stack(data->b, 'b');
-// }

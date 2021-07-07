@@ -23,16 +23,3 @@ int		count_stack(t_stack *stack)
 	return (i);
 }
 
-int		ft_checker(t_stack *stack)
-{
-	if (stack == NULL)
-		return (0);
-
-	while (stack->next)
-	{
-			if (stack->nbr > stack->next->nbr)
-				return (0);
-		stack = stack->next;
-	}
-	return (1);
-}

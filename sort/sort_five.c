@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:55:19 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/06 15:59:41 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:58:58 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ void	sort_five(t_data *data)
 	i = 0;
 	while (i < 2)
 	{
-		// display(data);
 		first_pos = get_pos(data, i);
 		if (first_pos == -1)
 			last_pos = -1;
 		else
-			// last_pos = count_stack(get_head(data->a)) - first_pos;
 			last_pos = data->index_a - first_pos;
 		if (first_pos != -1 && last_pos != -1)
 		{
@@ -66,6 +64,4 @@ void	sort_five(t_data *data)
 	sort_two(data);
 	pa(data);
 	pa(data);
-	// push_stack(&data->a, &data->b, 'a');
-	// push_stack(&data->a, &data->b, 'a');
 }
