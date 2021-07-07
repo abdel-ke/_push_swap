@@ -6,27 +6,16 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 18:38:28 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:02:56 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:29:16 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		check_is_in(t_data *data, int start, int end, int index)
+int	check_beggin_stack(t_data *data, int start, int end)
 {
-	while (start < end)
-	{
-		if (data->tab[start] == data->tab_a[index])
-			return (1);
-		start++;
-	}	
-	return (0);
-}
-
-int		check_beggin_stack(t_data *data, int start, int end)
-{
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 
 	count = 0;
 	i = 0;
@@ -40,7 +29,7 @@ int		check_beggin_stack(t_data *data, int start, int end)
 	return (1337);
 }
 
-int		check_last_stack(t_data *data, int start, int end)
+int	check_last_stack(t_data *data, int start, int end)
 {
 	int		count;
 	int		i;
@@ -59,10 +48,9 @@ int		check_last_stack(t_data *data, int start, int end)
 
 void	do_it(t_data *data, int start, int end)
 {
-	int	first_pos;
-	int	last_pos;
+	int		first_pos;
+	int		last_pos;
 
-	int i = start;
 	first_pos = check_beggin_stack(data, start, end);
 	last_pos = check_last_stack(data, start, end);
 	if (first_pos <= last_pos)
@@ -79,26 +67,30 @@ void	do_it(t_data *data, int start, int end)
 	}
 }
 
-void	push_b(t_data *data)
+void	sort_over_hundred_util(t_data *data)
 {
-	while (data->index_a)
-		pb(data);
+	if (data->index_a == 2)
+		sort_two(data);
+	else if (data->index_a == 3)
+		tree_nembre(data, data->stack_a[0], data->stack_a[1], data->stack_a[2]);
+	else if (data->index_a >= 4 && data->index_b <= 5)
+	{
+		while (data->index_a)
+			pb(data);
+	}
+	check_b(data);
 }
 
-void	sort_over_hundred(t_data *data, int divid)
+void	sort_over_hundred(t_data *data, int divid, int i, int k)
 {
-	int i;
-	int k;
-	int chunk_start;
-	int chunk_len;
-	int start;
-	int inc;
+	int		chunk_start;
+	int		chunk_len;
+	int		start;
+	int		inc;
 
-	i = 0;
-	k = 0;
-	start = 0;
 	chunk_len = data->index_a / divid;
 	inc = chunk_len;
+	start = 0;
 	while (i < divid)
 	{
 		while (k < chunk_len)
@@ -110,11 +102,5 @@ void	sort_over_hundred(t_data *data, int divid)
 		chunk_len += inc;
 		i++;
 	}
-	if (data->index_a == 2)
-		sort_two(data);
-	else if (data->index_a == 3)
-		tree_nembre(data, data->tab_a[0], data->tab_a[1], data->tab_a[2]);
-	else if (data->index_a >= 4 && data->index_b <= 5)
-		push_b(data);
-	check_b(data);
+	sort_over_hundred_util(data);
 }

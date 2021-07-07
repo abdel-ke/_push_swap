@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:02:53 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 18:40:18 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:17:56 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,26 @@
 
 void	sa(t_data	*data)
 {
-	int temp;
+	int		temp;
 
 	if (data->index_a >= 2)
 	{
-		temp = data->tab_a[0];
-		data->tab_a[0] = data->tab_a[1];
-		data->tab_a[1] = temp;
+		temp = data->stack_a[0];
+		data->stack_a[0] = data->stack_a[1];
+		data->stack_a[1] = temp;
 		ft_putendl("sa");
 	}
 }
 
 void	sb(t_data	*data)
 {
-	int temp;
+	int		temp;
 
 	if (data->index_b >= 2)
 	{
-		temp = data->tab_b[0];
-		data->tab_b[0] = data->tab_b[1];
-		data->tab_b[1] = temp;
+		temp = data->stack_b[0];
+		data->stack_b[0] = data->stack_b[1];
+		data->stack_b[1] = temp;
 		ft_putendl("sb");
-	}
-}
-
-void	swap_stack(t_stack *stack, char c)
-{
-	int var1;
-	int var2;
-	t_stack	*head;
-
-	if (stack->next != NULL)
-	{
-		var1 = stack->nbr;
-		head = get_head(stack);
-		stack = stack->next;
-		var2 = stack->nbr;
-		stack->nbr = var1;
-		head->nbr = var2;
-		if (c == 'a')
-			ft_putendl("sa");
-		else
-			ft_putendl("sb");
 	}
 }

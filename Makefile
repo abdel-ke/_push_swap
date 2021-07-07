@@ -6,7 +6,7 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/06 20:09:13 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/07 19:57:59 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,7 @@ SRCS =	libft/ft_putchar.c			\
 		libft/ft_putendl.c			\
 		libft/ft_strlen.c			\
 		libft/ft_strdup.c			\
-		libft/ft_isdigit.c 			\
 		libft/ft_atoi.c				\
-		libft/ft_itoa.c				\
-		libft/ft_split.c			\
-		libft/ft_strjoin.c			\
-		libft/ft_substr.c			\
 		struct.c					\
 		display.c					\
 		push_swap.c					\
@@ -36,11 +31,11 @@ SRCS =	libft/ft_putchar.c			\
 		sort/sort_five.c			\
 		sort/sort_over_hundred.c	\
 		sort/push_b.c				\
-		# sort/checker.c				\
+		sort/checker.c				\
 
 OBJ_DIR		=	./objs
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

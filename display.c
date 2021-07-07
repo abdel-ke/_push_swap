@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 16:11:37 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 16:51:47 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:08:43 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	display(t_data *data)
 		i = 0;
 		printf("A\t");
 		while (i < data->index_a)
-			printf("[%d]\t", data->tab_a[i++]);
+			printf("[%d]\t", data->stack_a[i++]);
 		puts("");
 		i = 0;
 		printf("B\t");
 		while (i < data->index_b)
-			printf("|%d|\t", data->tab_b[i++]);
+			printf("|%d|\t", data->stack_b[i++]);
 		puts("");
 }
 
