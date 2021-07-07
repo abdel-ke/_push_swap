@@ -24,7 +24,6 @@ void	do_it_b(t_data *data, int index)
 
 	first_pos = check_first_b(data, index);
 	last_pos = data->index_b - first_pos;
-
 	if (first_pos != -1)
 	{
 		if (first_pos <= last_pos)

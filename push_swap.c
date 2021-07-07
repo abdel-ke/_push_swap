@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:56:37 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 18:59:04 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:02:06 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,6 @@ int main(int ac, char **av)
 		ft_putstr("Error\n");
 	else
 		caller(data);
-	display(data);
+	// display(data);
 	ft_free(data);
 }

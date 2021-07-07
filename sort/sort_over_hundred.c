@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 18:38:28 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 18:39:44 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:02:56 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,11 @@ void	sort_over_hundred(t_data *data, int divid)
 	inc = chunk_len;
 	while (i < divid)
 	{
-		while (k++ < chunk_len)
-		// {
+		while (k < chunk_len)
+		{
 			do_it(data, start, chunk_len);
-			// k++;
-		// }
+			k++;
+		}
 		start += inc;
 		chunk_len += inc;
 		i++;
