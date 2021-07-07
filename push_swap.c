@@ -98,6 +98,11 @@ void	ft_free(t_data *data)
 void	display2(t_data *data)
 {
 		int i = 0;
+		printf("T\t");
+		while (i <= data->count_table)
+			printf("[%d]\t", data->tab[i++]);
+		puts("");
+		i = 0;
 		printf("A\t");
 		while (i < data->index_a)
 			printf("[%d]\t", data->tab_a[i++]);
