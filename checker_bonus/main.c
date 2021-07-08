@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:57:08 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 17:15:47 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 20:15:22 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main_util(t_data *data, char *line)
 {
 	while (get_next_line(&line))
 	{
-		get_instriction(data, line);
+		if (line[0] != '\0')
+			get_instriction(data, line);
 		free(line);
 		line = NULL;
 	}
@@ -56,14 +57,18 @@ int	main(int ac, char **av)
 	char	*line;
 	t_data	*data;
 
-	data = (t_data *)malloc(sizeof(t_data));
-	init(data);
-	if (!check_arg(av, data))
+	line = NULL;
+	if (ac > 1)
 	{
-		ft_putstr("Error\n");
-		return (1);
+		data = (t_data *)malloc(sizeof(t_data));
+		init(data);
+		if (!check_arg(av, data))
+		{
+			ft_putstr("Error\n");
+			return (1);
+		}
+		else
+			return (main_util(data, line));
 	}
-	else
-		return (main_util(data, line));
 	return (0);
 }

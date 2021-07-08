@@ -6,7 +6,7 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/08 18:53:05 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/08 19:54:38 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ SRCS=			ft_checker.c					\
 OBJ_DIR		=	./objs
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 CFLAGS = -Wall -Wextra -Werror
-
 all: $(NAME)
 
 $(NAME) : $(OBJ)
