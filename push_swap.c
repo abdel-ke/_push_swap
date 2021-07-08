@@ -6,18 +6,18 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:56:37 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:39:55 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:27:19 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stock_args(t_data *data, char **av)
+int	stock_args(t_data *data, char **av)
 {
-	int		i;
-	int		j;
-	int		start;
-	int		nbr;
+	int			i;
+	int			j;
+	int			start;
+	long long	nbr;
 
 	i = 1;
 	while (av[i])
@@ -28,6 +28,8 @@ void	stock_args(t_data *data, char **av)
 			while (av[i][j] && (av[i][j] == ' ' || av[i][j] == '\t'))
 				j++;
 			nbr = ft_atoi(av[i] + j);
+			if (nbr < -2147483648 || nbr > 2147483647)
+				return (0);
 			if (av[i][j] == '-')
 				j++;
 			while (av[i][j] >= '0' && av[i][j] <= '9')
@@ -36,6 +38,7 @@ void	stock_args(t_data *data, char **av)
 		}
 		i++;
 	}
+	return (1);
 }
 
 void	ft_free(t_data *data)
@@ -44,10 +47,10 @@ void	ft_free(t_data *data)
 		lstclear(&data->a, free);
 	if (data->stack_a)
 		free(data->stack_a);
-	if (data->tab)
-		free(data->tab);
 	if (data->stack_b)
 		free(data->stack_b);
+	if (data->tab)
+		free(data->tab);
 	if (data)
 		free(data);
 }
@@ -69,6 +72,9 @@ void	caller(t_data *data)
 void	init(t_data *data)
 {
 	data->a = NULL;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	data->tab = NULL;
 	data->index_a = 0;
 	data->index_b = 0;
 }

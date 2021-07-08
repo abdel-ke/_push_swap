@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:03:21 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:57:39 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:24:19 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_data
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putendl(char *str);
-int		ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
 
@@ -57,7 +57,7 @@ void	caller(t_data *data);
 int		get_last(t_stack *stack);
 void	push_to_list(t_data *data, char **av);
 int		sort_table(t_data *data);
-void	stock_args(t_data *data, char **av);
+int	stock_args(t_data *data, char **av);
 
 /*operation */
 void	sa(t_data *data);
