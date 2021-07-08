@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:19:11 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:26:37 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:16:35 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void	do_it_b(t_data *data, int index)
 		if (first_pos <= last_pos)
 		{
 			while (first_pos--)
-				rb(data);
-			pa(data);
+				rb(data, 1);
+			pa(data, 1);
 		}
 		else
 		{
 			while (last_pos--)
-				rrb(data);
-			pa(data);
+				rrb(data, 1);
+			pa(data, 1);
 		}
 	}
 }
@@ -63,5 +63,5 @@ void	check_b(t_data *data)
 		do_it_b(data, i);
 		i--;
 	}
-	pa(data);
+	pa(data, 1);
 }

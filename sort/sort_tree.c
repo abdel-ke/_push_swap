@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 14:48:27 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:34:24 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:18:14 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ void	tree_nembre(t_data *data, int f_value, int s_value, int l_value)
 {
 	if (s_value > l_value && l_value > f_value && l_value < s_value)
 	{
-		sa(data);
-		ra(data);
+		sa(data, 1);
+		ra(data, 1);
 	}
 	else if (l_value > f_value && f_value > s_value && f_value < l_value)
-		sa(data);
+		sa(data, 1);
 	else if (s_value > f_value && f_value > l_value && f_value < s_value)
-		rra(data);
+		rra(data, 1);
 	else if (f_value > l_value && l_value > s_value && l_value < f_value)
-		ra(data);
+		ra(data, 1);
 	else if (f_value > s_value && s_value > l_value && s_value < f_value)
 	{
-		sa(data);
-		rra(data);
+		sa(data, 1);
+		rra(data, 1);
 	}
 }
 
@@ -36,18 +36,18 @@ void	reverse_tree_nbr(t_data *data, int f_value, int s_value, int l_value)
 {
 	if (s_value > f_value && s_value < l_value)
 	{
-		rb(data);
-		sb(data);
+		rb(data, 1);
+		sb(data, 1);
 	}
 	else if (l_value > f_value && l_value < s_value)
-		rb(data);
+		rb(data, 1);
 	else if (f_value > s_value && f_value < l_value)
-		rrb(data);
+		rrb(data, 1);
 	else if (f_value > l_value && f_value < s_value)
-		sb(data);
+		sb(data, 1);
 	else if (l_value > s_value && l_value < f_value)
 	{
-		rrb(data);
-		sb(data);
+		rrb(data, 1);
+		sb(data, 1);
 	}
 }

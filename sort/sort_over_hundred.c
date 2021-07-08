@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 18:38:28 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:29:16 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:17:20 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ void	do_it(t_data *data, int start, int end)
 	if (first_pos <= last_pos)
 	{
 		while (first_pos--)
-			ra(data);
-		pb(data);
+			ra(data, 1);
+		pb(data, 1);
 	}
 	else
 	{
 		while (last_pos--)
-			rra(data);
-		pb(data);
+			rra(data, 1);
+		pb(data, 1);
 	}
 }
 
@@ -76,7 +76,7 @@ void	sort_over_hundred_util(t_data *data)
 	else if (data->index_a >= 4 && data->index_b <= 5)
 	{
 		while (data->index_a)
-			pb(data);
+			pb(data, 1);
 	}
 	check_b(data);
 }

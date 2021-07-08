@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:25:19 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 11:24:38 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:33:26 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,42 @@ int	check_arg_util(char *str, int pos)
 	return (1);
 }
 
+t_stack	*get_head(t_stack *stack)
+{
+	while (stack->prev)
+		stack = stack->prev;
+	return (stack);
+}
+
+int	check_is_empty(char **av)
+{
+	int		i;
+	int		j;
+	int		ch;
+
+	i = 1;
+	while (av[i])
+	{
+		j = -1;
+		ch = 0;
+		while (av[i][++j])
+			if (av[i][j] >= '0' && av[i][j] <= '9')
+				ch = 1;
+		if (ch == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	check_arg(char **av, t_data *data)
 {
 	int		i;
 	int		j;
+	int		ch;
 
+	if (!(check_is_empty(av)))
+		return (0);
 	i = 1;
 	while (av[i])
 	{
@@ -56,12 +87,6 @@ int	check_arg(char **av, t_data *data)
 		return (0);
 	if (sort_table(data) == 0)
 		return (0);
+	display(data);
 	return (1);
-}
-
-t_stack	*get_head(t_stack *stack)
-{
-	while (stack->prev)
-		stack = stack->prev;
-	return (stack);
 }

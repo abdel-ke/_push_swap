@@ -6,13 +6,13 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:02:53 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:17:56 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:15:04 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sa(t_data	*data)
+void	sa(t_data	*data, int print)
 {
 	int		temp;
 
@@ -21,11 +21,12 @@ void	sa(t_data	*data)
 		temp = data->stack_a[0];
 		data->stack_a[0] = data->stack_a[1];
 		data->stack_a[1] = temp;
-		ft_putendl("sa");
+		if (print)
+			ft_putendl("sa");
 	}
 }
 
-void	sb(t_data	*data)
+void	sb(t_data	*data, int print)
 {
 	int		temp;
 
@@ -34,6 +35,7 @@ void	sb(t_data	*data)
 		temp = data->stack_b[0];
 		data->stack_b[0] = data->stack_b[1];
 		data->stack_b[1] = temp;
-		ft_putendl("sb");
+		if (print)
+			ft_putendl("sb");
 	}
 }

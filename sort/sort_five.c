@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:55:19 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/07 19:24:38 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:17:02 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	sort_five_util(t_data *data)
 {
 	tree_nembre(data, data->stack_a[0], data->stack_a[1], data->stack_a[2]);
 	sort_two(data);
-	pa(data);
-	pa(data);
+	pa(data, 1);
+	pa(data, 1);
 }
 
 void	sort_five(t_data *data, int first_pos, int last_pos)
@@ -51,14 +51,14 @@ void	sort_five(t_data *data, int first_pos, int last_pos)
 			if (first_pos <= last_pos)
 			{
 				while (first_pos--)
-					ra(data);
-				pb(data);
+					ra(data, 1);
+				pb(data, 1);
 			}
 			else
 			{
 				while (last_pos--)
-					rra(data);
-				pb(data);
+					rra(data, 1);
+				pb(data, 1);
 			}
 		}
 		i++;

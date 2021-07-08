@@ -6,33 +6,31 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/08 17:18:21 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/08 18:47:49 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = checker
 
-SRCS =	libft/ft_putchar.c			\
-		libft/ft_putstr.c			\
-		libft/ft_putendl.c			\
-		libft/ft_strlen.c			\
-		libft/ft_strdup.c			\
-		libft/ft_atoi.c				\
-		struct.c					\
-		push_swap_utils.c			\
-		display.c					\
-		push_swap.c					\
-		sort/sort_table.c			\
-		operations/swap.c			\
-		operations/push.c			\
-		operations/rotate.c			\
-		operations/reverse_rotate.c	\
-		sort/sort_tree.c			\
-		sort/sort_two.c				\
-		sort/sort_five.c			\
-		sort/sort_over_hundred.c	\
-		sort/push_b.c				\
-		sort/checker_args.c			\
+
+SRCS=			ft_checker.c			\
+				get_next_line.c			\
+				main.c					\
+				../libft/ft_putchar.c			\
+				../libft/ft_putstr.c			\
+				../libft/ft_putendl.c			\
+				../libft/ft_strlen.c			\
+				../libft/ft_strdup.c			\
+				../libft/ft_atoi.c				\
+				../libft/ft_strcmp.c			\
+				../struct.c						\
+				../push_swap_utils.c			\
+				../sort/sort_table.c			\
+				../operations/swap.c			\
+				../operations/push.c			\
+				../operations/rotate.c			\
+				../operations/reverse_rotate.c	\
+				../sort/checker_args.c			\
 
 OBJ_DIR		=	./objs
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
@@ -53,6 +51,7 @@ clean :
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -rf libft operation sort
 
 re : fclean all
 

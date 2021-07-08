@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:46:00 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 11:23:41 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:38:15 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ long long	ft_atoi(const char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 		rst = (rst * 10) + (str[i++] - '0');
+	// printf("RSLT|%lld|\n", rst);
 	return (rst * n);
 }
