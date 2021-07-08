@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:25:19 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 18:33:26 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:53:34 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ int	check_arg(char **av, t_data *data)
 		return (0);
 	if (sort_table(data) == 0)
 		return (0);
-	display(data);
 	return (1);
 }

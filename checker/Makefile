@@ -6,16 +6,16 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/08 18:47:49 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/08 18:53:05 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = checker
 
 
-SRCS=			ft_checker.c			\
-				get_next_line.c			\
-				main.c					\
+SRCS=			ft_checker.c					\
+				get_next_line.c					\
+				main.c							\
 				../libft/ft_putchar.c			\
 				../libft/ft_putstr.c			\
 				../libft/ft_putendl.c			\
@@ -51,7 +51,7 @@ clean :
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -rf libft operation sort
+	@rm -rf libft operations sort push_swap_utils.o struct.o
 
 re : fclean all
 
