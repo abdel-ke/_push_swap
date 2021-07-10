@@ -6,11 +6,27 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:14:49 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 11:21:32 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:17:32 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	check_a(t_data *data)
+{
+	int		i;
+
+	i = 0;
+	if (data->index_b)
+		return (0);
+	while (i < data->index_a - 1)
+	{
+		if (data->stack_a[i] > data->stack_a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	count_stack(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:03:21 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 18:15:30 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:16:45 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int			check_is_in(t_data *data, int start, int end, int index);
 int			check_arg_util(char *str, int pos);
 int			check_arg(char **av, t_data *data);
 void		get_instriction(t_data *data, char *line);
+int			check_a(t_data *data);
 
 /* sort */
 /* 2 */
