@@ -6,81 +6,85 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/08 20:51:24 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/10 15:37:52 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-NAME_CH = checker
+NAME_B = checker
 
-SRCS_BOTH =	libft/ft_putchar.c			\
-			libft/ft_putstr.c			\
-			libft/ft_strcmp.c			\
-			libft/ft_putendl.c			\
-			libft/ft_strlen.c			\
-			libft/ft_strdup.c			\
-			libft/ft_atoi.c				\
-			struct.c					\
-			push_swap_utils.c			\
-			sort/sort_table.c			\
-			sort/checker_args.c			\
-			operations/swap.c			\
-			operations/push.c			\
-			operations/rotate.c			\
-			operations/reverse_rotate.c
-
-SRCS =		push_swap.c					\
-			sort/sort_tree.c			\
-			sort/sort_two.c				\
-			sort/sort_five.c			\
-			sort/sort_over_hundred.c	\
-			sort/push_b.c				
-# display.c					
-
-SCRS_CH =	checker_bonus/ft_checker.c		\
-			checker_bonus/get_next_line.c	
-# checker/main.c
-
-MAIN_CH =	checker_bonus/main.c
+SRCS =	libft/ft_putchar.c			\
+		libft/ft_putstr.c			\
+		libft/ft_putendl.c			\
+		libft/ft_strlen.c			\
+		libft/ft_strdup.c			\
+		libft/ft_atoi.c				\
+		struct.c					\
+		push_swap_utils.c			\
+		push_swap.c					\
+		sort/sort_table.c			\
+		operations/swap.c			\
+		operations/push.c			\
+		operations/rotate.c			\
+		operations/reverse_rotate.c	\
+		sort/sort_tree.c			\
+		sort/sort_two.c				\
+		sort/sort_five.c			\
+		sort/sort_over_hundred.c	\
+		sort/push_b.c				\
+		sort/checker_args.c			
+		
+SRCS_B = libft/ft_putchar.c			\
+		libft/ft_putstr.c			\
+		libft/ft_putendl.c			\
+		libft/ft_strcmp.c			\
+		libft/ft_strlen.c			\
+		libft/ft_strdup.c			\
+		libft/ft_atoi.c				\
+		struct.c					\
+		push_swap_utils.c			\
+		sort/sort_table.c			\
+		operations/swap.c			\
+		operations/push.c			\
+		operations/rotate.c			\
+		operations/reverse_rotate.c	\
+		sort/checker_args.c			\
+		checker_bonus/ft_checker.c \
+		checker_bonus/get_next_line.c \
+		checker_bonus/main.c  
 
 OBJ_DIR		=	./objs
-OBJ_DIR_CH		=	./objs_ch
-OBJ1 = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
-OBJ2 = $(addprefix $(OBJ_DIR)/,$(SRCS_BOTH:.c=.o))
-OBJ3 = $(addprefix $(OBJ_DIR)/,$(SCRS_CH:.c=.o))
-OBJ  = $(OBJ1) $(OBJ2)
-OBJ_CH = $(OBJ3) $(MAIN_CH)
+OBJ_DIR_B		=	./objs_b
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
+OBJ_B = $(addprefix $(OBJ_DIR_B)/,$(SRCS_B:.c=.o))
 CFLAGS = -Wall -Wextra -Werror
 
-all: push_swap checker
-
-push_swap: $(NAME) 
+all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@gcc  $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "\n\033[32m--------- successfully ---------\033[0m"
+	@gcc -g $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "\n\033[32m--------- PUSH_SWAP SUCCESSFUL ---------\033[0m"
 
 $(OBJ): $(OBJ_DIR)/%.o: %.c
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	gcc -c $< -o $@
-	
-checker: $(NAME_CH)
 
-$(NAME_CH) : $(OBJ_CH)
-	@gcc  $(CFLAGS) $(OBJ_CH) -o $(NAME_CH)
-	@echo "\n\033[32m--------- successfully ---------\033[0m"
+$(OBJ_B): $(OBJ_DIR_B)/%.o: %.c
+	@mkdir -p $(dir $@)
+	gcc -c $< -o $@
 
-$(OBJ_CH): $(OBJ_DIR)/%.o: %.c
-	mkdir -p $(dir $@)
-	gcc  -c $< -o $@
+$(NAME_B) : $(OBJ_B)
+	@gcc -g $(CFLAGS) $(OBJ_B) -o $(NAME_B)
+	@echo "\n\033[32m--------- BONUS SUCCESSFUL ---------\033[0m"
+
+bonus: $(OBJ_B) $(NAME_B)
 
 clean :
 	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR_B)
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f $(NAME_CH)
+	@rm -f $(NAME_B)
 
 re : fclean all
-
-.PHONY: all clean fclean force

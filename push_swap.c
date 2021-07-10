@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:56:37 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 18:22:20 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/10 15:37:23 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	caller(t_data *data)
 		sort_five(data, 0, 0);
 	else if (data->count_table >= 6 && data->count_table <= 99)
 		sort_over_hundred(data, 5, 0, 0);
-	else if (data->count_table >= 100 && data->count_table <= 500)
+	else
 		sort_over_hundred(data, 13, 0, 0);
 }
 
@@ -36,12 +36,11 @@ int	main(int ac, char **av)
 		init(data);
 		if (!check_arg(av, data))
 		{
-			ft_putstr("Error\n");
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		else
 			caller(data);
-		//display(data);
 		ft_free(data);
 	}
 	return (0);

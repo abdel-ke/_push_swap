@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 15:45:10 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 18:18:59 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/10 14:17:21 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	get_instriction(t_data *data, char *line)
 	else if (!(ft_strcmp(line, "pb")))
 		pb(data, 0);
 	else
-		ft_putendl("Error");
+		write(2, "Error\n", 6);
 }
