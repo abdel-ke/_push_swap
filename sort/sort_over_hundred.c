@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 18:38:28 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/10 20:20:42 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/11 15:34:19 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_over_hundred_util(t_data *data)
 		sort_two(data);
 	else if (data->index_a == 3)
 		tree_nembre(data, data->stack_a[0], data->stack_a[1], data->stack_a[2]);
-	else
+	else if (!check_a(data))
 		while (data->index_a)
 			pb(data, 1);
 	check_b(data);

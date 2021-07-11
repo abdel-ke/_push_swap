@@ -1,38 +1,20 @@
-KO="KO";
-
-# while true
-# do
-# # ARG=`ruby -e "puts ($1..$2).to_a.shuffle.join(' ')"` ; echo $ARG ; ./push_swap $ARG | ./checker_Mac $ARG
-# ARG=`ruby -e "puts (1..$1).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker_Mac $ARG
-# ./push_swap $ARG | ./checker $ARG
-# is_ok=$(./push_swap $ARG | ./checker $ARG | grep -E "OK\b|KO\b");
-# echo $ARG >> ARGS
-# sleep 0.5
-# done
-
-
-
-# while true
-# do
-# ARG=`ruby -e "puts ($1..$2).to_a.shuffle.join(' ')"` ; echo $ARG ; ./push_swap $ARG | ./checker_Mac $ARG
-ARG=" "
-# `ruby -e "puts (1..$1).to_a.shuffle.join(' ')"` 
-# ; ./push_swap $ARG | ./checker_Mac $ARG
-# ./push_swap $ARG | ./checker $ARG
-is_ok=$(./push_swap $ARG | ./checker_Mac $ARG | grep -E "OK\b|KO\b");
+while true
+do
+ARG=`ruby -e "puts (1..$1).to_a.shuffle.join(' ')"`
+# echo $ARG
+is_ok2=$(./push_swap $ARG | ./checker $ARG);
+# ARG="1 5 2 4 3"
+is_ok=$(./push_swap $ARG | ./checker $ARG && ./push_swap $ARG | ./checker_Mac $ARG && ./push_swap $ARG | wc -l);
 echo $is_ok
-if [[ $is_ok == *"OK"* ]]
+if [[ $is_ok2 == *"KO"* ]]
 then
-	echo "ITS TRUE";
+	echo $ARG >> ARGS
+	# exit;
 fi
-if [[ $is_ok == *"KO"* ]]
+if [[ $is_ok2 == *"Error"* ]]
 then
-	echo "ITS FALSE";
+	echo $ARG >> ARGS
+	# exit;
 fi
-if [[ $is_ok == *"Error"* ]]
-then
-	echo "ERROR EL7AJ";
-fi
-# echo $ARG >> ARGS
-# sleep 0.5
-# done
+sleep 0.25
+done

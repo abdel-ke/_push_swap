@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:33:56 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 18:14:44 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/11 15:56:02 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	rb(t_data *data, int print)
 		if (print)
 			ft_putendl("rb");
 	}
+}
+
+void	rr(t_data *data, int print)
+{
+	ra(data, print);
+	rb(data, print);
 }

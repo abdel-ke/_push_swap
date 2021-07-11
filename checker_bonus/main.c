@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:57:08 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/10 20:17:27 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/11 12:54:57 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 		init(data);
 		if (!check_arg(av, data))
 		{
-			write(2, "Error\n", 6);
+			write(1, "Error\n", 6);
 			return (1);
 		}
 		else

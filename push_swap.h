@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:03:21 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/10 20:16:45 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/11 15:30:50 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,15 @@ void		init(t_data *data);
 /*operation */
 void		sa(t_data *data, int print);
 void		sb(t_data *data, int print);
+void		ss(t_data *data, int print);
 void		pa(t_data *data, int print);
 void		pb(t_data *data, int print);
 void		ra(t_data *data, int print);
 void		rb(t_data *data, int print);
+void		rr(t_data *data, int print);
 void		rra(t_data *data, int print);
 void		rrb(t_data *data, int print);
+void		rrr(t_data *data, int print);
 
 /* checker */
 int			check_is_in(t_data *data, int start, int end, int index);
