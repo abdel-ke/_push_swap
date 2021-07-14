@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 16:11:37 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/10 15:16:58 by abdel-ke         ###   ########.fr       */
+/*   Created: 2021/07/14 11:24:20 by abdel-ke          #+#    #+#             */
+/*   Updated: 2021/07/14 11:26:39 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdio.h>
+#include "../push_swap.h"
 
-int main()
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	printf("test\n");
-	return (0);
+	size_t	i;
+	size_t	size;
+	char	*s2;
+
+	if (s == NULL)
+		return (NULL);
+	s2 = (char *)malloc(sizeof(char) * len + 1);
+	size = ft_strlen(s);
+	if (!s2)
+		return (NULL);
+	i = 0;
+	if (start < size)
+	{
+		while (i < len)
+		{
+			s2[i] = s[start];
+			start++;
+			i++;
+		}
+	}
+	s2[i] = '\0';
+	return (s2);
 }

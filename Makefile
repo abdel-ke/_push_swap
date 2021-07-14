@@ -6,7 +6,7 @@
 #    By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:11:32 by abdel-ke          #+#    #+#              #
-#    Updated: 2021/07/10 15:37:52 by abdel-ke         ###   ########.fr        #
+#    Updated: 2021/07/14 16:02:32 by abdel-ke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ SRCS =	libft/ft_putchar.c			\
 		libft/ft_strlen.c			\
 		libft/ft_strdup.c			\
 		libft/ft_atoi.c				\
+		libft/ft_strjoin.c			\
+		libft/ft_substr.c			\
+		libft/ft_strchr.c			\
 		struct.c					\
 		push_swap_utils.c			\
 		push_swap.c					\
@@ -41,6 +44,9 @@ SRCS_B = libft/ft_putchar.c			\
 		libft/ft_strlen.c			\
 		libft/ft_strdup.c			\
 		libft/ft_atoi.c				\
+		libft/ft_strjoin.c			\
+		libft/ft_substr.c			\
+		libft/ft_strchr.c			\
 		struct.c					\
 		push_swap_utils.c			\
 		sort/sort_table.c			\
@@ -65,11 +71,11 @@ $(NAME) : $(OBJ)
 	@gcc -g $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "\n\033[32m--------- PUSH_SWAP SUCCESSFUL ---------\033[0m"
 
-$(OBJ): $(OBJ_DIR)/%.o: %.c
+$(OBJ): $(OBJ_DIR)/%.o: %.c push_swap.h
 	@mkdir -p $(dir $@)
 	gcc -c $< -o $@
 
-$(OBJ_B): $(OBJ_DIR_B)/%.o: %.c
+$(OBJ_B): $(OBJ_DIR_B)/%.o: %.c push_swap.h
 	@mkdir -p $(dir $@)
 	gcc -c $< -o $@
 

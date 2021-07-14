@@ -5,108 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 16:13:03 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/08 15:42:53 by abdel-ke         ###   ########.fr       */
+/*   Created: 2021/07/14 11:15:40 by abdel-ke          #+#    #+#             */
+/*   Updated: 2021/07/14 11:26:46 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	is_n(char *str)
+int	get_line(char **str, int n, char **line, int fd)
 {
-	while (*str)
+	char	*temp;
+	int		i;
+
+	i = 0;
+	while (str[fd][i] && str[fd][i] != '\n')
+		i++;
+	*line = ft_substr(str[fd], 0, i);
+	if (!str[fd][i])
 	{
-		if (*str == '\n')
-			return (1);
-		str++;
+		temp = str[fd];
+		str[fd] = NULL;
+		free(temp);
+		return (0);
 	}
-	return (0);
-}
-
-char	*ft_strjoin(char *str1, char *str2)
-{
-	int		i;
-	int		len1;
-	int		len2;
-	char	*new;
-
-	i = 0;
-	len1 = ft_strlen(str1);
-	len2 = ft_strlen(str2);
-	new = malloc(sizeof(char) * (len1 + len2 + 1));
-	while (*str1)
-		new[i++] = *str1++;
-	while (*str2)
-		new[i++] = *str2++;
-	new[i] = '\0';
-	return (new);
-}
-
-char	*my_strcut(char *str, int n)
-{
-	int		len;
-	int		i;
-	char	*new;
-
-	i = 0;
-	len = ft_strlen(str);
-	if (len > n)
-		len = n;
-	new = malloc(sizeof(char) * (len + 1));
-	while (*str && len--)
-		new[i++] = *str++;
-	new[i] = '\0';
-	return (new);
-}
-
-int	fill_line(char **content, char **line)
-{
-	int		end;
-	char	*tmp;
-
-	end = 0;
-	while ((*content)[end] != '\n' && (*content)[end] != '\0')
-		end++;
-	if ((*content)[end] == '\n')
+	else
 	{
-		*line = my_strcut(*content, end);
-		tmp = ft_strdup(*content + end + 1);
-		free(*content);
-		*content = tmp;
+		temp = str[fd];
+		str[fd] = ft_strdup((str[fd]) + i + 1);
+		free(temp);
+	}
+	if (!str[fd] || !*line)
+		return (-1);
+	if (n || (n == 0 && str[fd] != NULL))
 		return (1);
-	}
-	else if ((*content[end]) == '\0')
-	{
-		*line = ft_strdup(*content);
-		free(*content);
-	}
-	return (0);
+	return (-1);
 }
 
-int	get_next_line(char **line)
+int	ft_read_line(int fd, char *str[4864], char *buf)
 {
-	int				r;
-	static char		*content;
-	char			*tmp;
-	char			*buff;
+	char	*temp;
+	int		n;
 
-	if (content == NULL)
-		content = ft_strdup("");
-	buff = malloc(sizeof(char) * 101);
-	if (!is_n(content))
+	n = read(fd, buf, BUFFER_SIZE);
+	while (n)
 	{
-		r = 1;
-		while (r > 0)
-		{
-			buff[r] = '\0';
-			tmp = ft_strjoin(content, buff);
-			free(content);
-			content = tmp;
-			if (is_n(buff))
-				break ;
-			r = read(0, buff, 100);
-		}
+		temp = str[fd];
+		buf[n] = '\0';
+		str[fd] = ft_strjoin(str[fd], buf);
+		if (!str[fd])
+			return (-1);
+		free(temp);
+		if (ft_strchr(str[fd], '\n') != NULL)
+			break ;
 	}
-	free(buff);
-	return (fill_line(&content, line));
+	return (1);
+}
+
+int	get_next_line(int fd, char **line)
+{
+	char			*buf;
+	static char		*str[4864];
+	char			*temp;
+	int				n;
+
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!line || fd < 0 || fd >= 4864 || BUFFER_SIZE <= 0
+		|| !buf || read(fd, buf, 0) == -1)
+		return (-1);
+	if (!str[fd])
+	{
+		str[fd] = ft_strdup("");
+		if (!str[fd])
+			return (-1);
+	}
+	if (ft_read_line(fd, str, buf) == -1)
+		return (-1);
+	free(buf);
+	return (get_line(str, n, line, fd));
 }

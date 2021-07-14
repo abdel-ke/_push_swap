@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:14:49 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/10 20:17:32 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/14 15:47:15 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	check_a(t_data *data)
 	while (i < data->index_a - 1)
 	{
 		if (data->stack_a[i] > data->stack_a[i + 1])
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);

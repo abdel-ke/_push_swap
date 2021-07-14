@@ -6,7 +6,7 @@
 /*   By: abdel-ke <abdel-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:03:21 by abdel-ke          #+#    #+#             */
-/*   Updated: 2021/07/11 15:30:50 by abdel-ke         ###   ########.fr       */
+/*   Updated: 2021/07/14 16:02:46 by abdel-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE -1
+#  define BUFFER_SIZE 10
 # endif
 
 typedef struct s_stack
@@ -46,13 +46,15 @@ long long	ft_atoi(const char *str);
 char		*ft_strdup(const char *s1);
 size_t		ft_strlen(const char *s);
 int			ft_strcmp(char *s1, char *s2);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strchr(const char *s, int c);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
 
 /* get_next_line */
 int			is_n(char *str);
-char		*ft_strjoin(char *str1, char *str2);
 char		*my_strcut(char *str, int n);
 int			fill_line(char **content, char **line);
-int			get_next_line(char **line);
+int			get_next_line(int fd, char **line);
 
 /* struct */
 void		lstadd_back(t_stack **alst, t_stack *new);
@@ -71,6 +73,7 @@ void		push_to_list(t_data *data, char **av);
 int			sort_table(t_data *data);
 int			stock_args(t_data *data, char **av);
 void		init(t_data *data);
+int			ft_error(t_data *data, char *msg, int ret);
 
 /*operation */
 void		sa(t_data *data, int print);
